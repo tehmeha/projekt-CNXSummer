@@ -14,16 +14,16 @@ int main()
         if(stupac <=8 && stupac >0 && red <=8  && red > 0)
         {
           cin >> polje2d[stupac-1][red-1];
-          for(int i=0;i<8;i++)
+          for(int i=0;i<9;i++)
           {
 
-              for(int j=0;j<8;j++)
+              for(int j=0;j<9;j++)
               {
                 if(j==3 || j==6)
                 {
                     cout<<"\t";
                 }
-                cout << polje2d[i][j]<<"\t";
+                cout << polje2d[i][j];
               }
               cout <<endl;
           }
