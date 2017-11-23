@@ -1,6 +1,52 @@
 #include<iostream>
 using namespace std;
 
+int pobijednik_kvadranta( int **polje2d, int pomak_r, int pomak_s)
+{
+    int pobijedio;
+    if( polje2d[0+pomak_r][0+pomak_s]!=0 && polje2d[0+pomak_r][0 +pomak_s]==polje2d[0+pomak_r][1 +pomak_s] && polje2d[0+pomak_r][1 +pomak_s]==polje2d[0+pomak_r][2 +pomak_s] ) //! 1kv. 1red
+            {
+              pobijedio=polje2d[0][0];
+              //cout << pobijedio << endl;
+            }
+            if( polje2d[1 +pomak_r][0 +pomak_s]!=0 && polje2d[1+pomak_r][0 +pomak_s]==polje2d[1+pomak_r][1 +pomak_s] && polje2d[1+pomak_r][1 +pomak_s]==polje2d[1][2 +pomak_s] ) //! 1kv. 2red
+            {
+              pobijedio=polje2d[1][0];
+              //cout << pobijedio << endl;
+            }
+            if( polje2d[2+pomak_r][0 +pomak_s]!=0 && polje2d[2+pomak_r][0 +pomak_s]==polje2d[2+pomak_r][1 +pomak_s] && polje2d[2+pomak_r][1 +pomak_s]==polje2d[2+pomak_r][2 +pomak_s] ) //! 1kv. 3red
+            {
+              pobijedio=polje2d[2][0];
+              //cout << pobijedio << endl;
+            }
+            if( polje2d[0+pomak_r][0 +pomak_s]!=0 && polje2d[0+pomak_r][0 +pomak_s]==polje2d[1+pomak_r][0 +pomak_s] && polje2d[1+pomak_r][0 +pomak_s]==polje2d[2+pomak_r][0 +pomak_s] ) //! 1kv. 1stup
+            {
+              pobijedio=polje2d[0][0];
+              //cout << pobijedio << endl;
+            }
+            if( polje2d[0+pomak_r][1 +pomak_s]!=0 && polje2d[0+pomak_r][1 +pomak_s]==polje2d[1+pomak_r][1 +pomak_s] && polje2d[1+pomak_r][1 +pomak_s]==polje2d[1+pomak_r][2 +pomak_s] ) //! 1kv. 2stup
+            {
+              pobijedio=polje2d[0][1];
+              //cout << pobijedio << endl;
+            }
+            if( polje2d[0+pomak_r][2 +pomak_s]!=0 && polje2d[0+pomak_r][2 +pomak_s]==polje2d[1+pomak_r][2 +pomak_s] && polje2d[1+pomak_r][2 +pomak_s]==polje2d[2+pomak_r][2 +pomak_s] ) //! 1kv. 3stup
+            {
+              pobijedio=polje2d[0][2];
+              //cout << pobijedio << endl;
+            }
+            if( polje2d[2+pomak_r][0 +pomak_s]==polje2d[1+pomak_r][1 +pomak_s]==polje2d[0+pomak_r][2 +pomak_s]) //!dijagonala
+            {
+                pobijedio=polje2d[1][1];
+                //cout <<pobjedio<<endl;
+            }
+            if(polje2d[0+pomak_r][0 +pomak_s]==polje2d[1+pomak_r][1 +pomak_s]==polje2d[2+pomak_r][2 +pomak_s] ) //!dijagonala
+            {
+                pobijedio=polje2d[1][1];
+                //cout <<pobjedio<endl;
+            }
+    return pobijedio;
+}
+
 int main()
 {
     bool sit=true;
@@ -42,51 +88,8 @@ int main()
               }
             cout <<endl;
           }
-            if(polje2d[0][0]==polje2d[0][1]==polje2d[0][2] || polje2d[1][0]==polje2d[1][1]==polje2d[1][2] || polje2d[2][0]==polje2d[2][1]==polje2d[2][2])
-            {
-              prvi=1;
-              cout << "";
-            }
-            if(polje2d[0][0]==polje2d[1][0]==polje2d[2][0]==1 || polje2d[0][1]==polje2d[1][1]==polje2d[2][1]==1 || polje2d[0][2]==polje2d[1][2]==polje2d[2][2]==1)
-            {
-              prvi=1;
-            }
-            if(polje2d[0][0]==polje2d[0][1]==polje2d[0][2]==2 || polje2d[1][0]==polje2d[1][1]==polje2d[1][2]==2 || polje2d[2][0]==polje2d[2][1]==polje2d[2][2]==2)
-            {
-              prvi=2;
-            }
-            if(polje2d[0][0]==polje2d[1][0]==polje2d[2][0]==2 || polje2d[0][1]==polje2d[1][1]==polje2d[2][1]==2 || polje2d[0][2]==polje2d[1][2]==polje2d[2][2]==2)
-            {
-              prvi=2;
-            }
-            if(polje2d[0][0]==polje2d[1][1]==polje2d[2][2] || polje2d[2][0]==polje2d[1][1]==polje2d[0][2])
-            {
-                prvi=polje2d[1][1];
-            }
-            //drugi
-            if(polje2d[0][0]==polje2d[0][1]==polje2d[0][2]==1 || polje2d[1][0]==polje2d[1][1]==polje2d[1][2]==1 || polje2d[2][0]==polje2d[2][1]==polje2d[2][2]==1)
-            {
-              drugi=1;
-            }
-            if(polje2d[3][0]==polje2d[4][0]==polje2d[5][0]==1 || polje2d[3][1]==polje2d[4][1]==polje2d[5][1]==1 || polje2d[3][2]==polje2d[4][2]==polje2d[5][2]==1)
-            {
-              drugi=1;
-            }
-            if(polje2d[3][0]==polje2d[3][1]==polje2d[3][2]==2 || polje2d[3][0]==polje2d[4][1]==polje2d[5][2]==2 || polje2d[3][0]==polje2d[4][1]==polje2d[5][2]==2)
-            {
-              drugi=2;
-            }
-            if(polje2d[0][0]==polje2d[1][0]==polje2d[2][0]==2 || polje2d[0][1]==polje2d[1][1]==polje2d[2][1]==2 || polje2d[0][2]==polje2d[1][2]==polje2d[2][2]==2)
-            {
-              drugi=2;
-            }
-            if(polje2d[0][0]==polje2d[1][1]==polje2d[2][2] || polje2d[2][0]==polje2d[1][1]==polje2d[0][2])
-            {
-                drugi=polje2d[4][1];
-            }
-          }
-
-
+        pobijednik_kvadranta(polje2d,0,0)
+    }
     else
         {
             cout <<"Unjeli ste krive podatke."<<endl;
