@@ -68,7 +68,7 @@ int main()
         cin >>stupac;
         cout <<"Unesite red u koji zelite unjeti krizic/kruzic: ";
         cin >>red;
-        if(stupac <= 9 && stupac >= 1 && red <=9  && red >= 1)
+        if(stupac < 10 && stupac > 0 && red <10  && red > 0)
         {
 
         polje2d[red-1][stupac-1] = igrac;
@@ -144,17 +144,17 @@ int main()
                 }
             }
         }
-        else
+        else if(stupac >9 && stupac <0 && red >10 && red <0)
             {
                 cout <<"Unjeli ste krive podatke."<<endl;
-        if(igrac == 1)
-        {
-            igrac = 2;
-        }
-        else if(igrac == 2)
-        {
-            igrac = 1;
-        }
+                if(igrac == 1)
+                {
+                    igrac = 2;
+                }
+                else if(igrac == 2)
+                {
+                igrac = 1;
+                }
             }
             cout << endl;
         }
