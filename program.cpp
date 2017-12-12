@@ -50,7 +50,8 @@ int pobijednik_kvadranta( int **polje2d, int pomak_r, int pomak_s)
 int main()
 {
     bool sit=true;
-    bool prvi=false,drugi=false,treci=false,cetvrti=false,peti=false,sesti=false,sedmi=false,osmi=false,deveti=false,igrac=2;
+    bool prvi=false,drugi=false,treci=false,cetvrti=false,peti=false,sesti=false,sedmi=false,osmi=false,deveti=false;
+    int igrac=1;
     int stupac,red;
     int polje2d[9][9]={{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}};
    do{
@@ -62,7 +63,7 @@ int main()
         {
             cout<<"Igra kruzic tj. 1"<<endl;
         }
-        igrac++;
+
         cout <<"Unesite stupac u koji zelite unjeti krizic/kruzic: ";
         cin >>stupac;
         cout <<"Unesite red u koji zelite unjeti krizic/kruzic: ";
@@ -70,7 +71,7 @@ int main()
         if(stupac <= 9 && stupac >= 1 && red <=9  && red >= 1)
         {
 
-        polje2d[red-1][stupac-1] = igrac%2+1;
+        polje2d[red-1][stupac-1] = igrac;
         for(int i=0;i<9;i++)
           {
 
@@ -94,52 +95,77 @@ int main()
             if(stupac==1 || stupac==4 || stupac==7)
             {
                 cout<<"Sljedeci krizic/kruzic mora se upisati u prvi kvadrant."<<endl;
+                prvi=true;
             }
             if(stupac==2 || stupac==5 || stupac==8)
             {
                 cout<<"Sljedeci krizic/kruzic mora se upisati u drugi kvadrant."<<endl;
+                drugi=true;
             }
             if(stupac==3 || stupac==6 || stupac==9)
             {
                 cout<<"Sljedeci krizic/kruzic mora se upisati u treci kvadrant."<<endl;
+                treci=true;
             }
         }
         if(red ==2  || red ==5 || red==8 )
         {
-            if(stupac==1 || stupac==4 || stupac==7)
-            {
-                cout<<"Sljedeci krizic/kruzic mora se upisati u cetvrti kvadrant."<<endl;
+                if(stupac==1 || stupac==4 || stupac==7)
+                {
+                    cout<<"Sljedeci krizic/kruzic mora se upisati u cetvrti kvadrant."<<endl;
+                    cetvrti =true;
+                }
+                if(stupac==2 || stupac==5 || stupac==8)
+                {
+                    cout<<"Sljedeci krizic/kruzic mora se upisati u peti kvadrant."<<endl;
+                    peti=true;
+                }
+                if(stupac==3 || stupac==6 || stupac==9)
+                {
+                    cout<<"Sljedeci krizic/kruzic mora se upisati u sesti kvadrant."<<endl;
+                    sesti=true;
+                }
             }
-            if(stupac==2 || stupac==5 || stupac==8)
+            if(red ==3  || red ==6 || red==9 )
             {
-                cout<<"Sljedeci krizic/kruzic mora se upisati u peti kvadrant."<<endl;
-            }
-            if(stupac==3 || stupac==6 || stupac==9)
-            {
-                cout<<"Sljedeci krizic/kruzic mora se upisati u sesti kvadrant."<<endl;
+                if(stupac==1 || stupac==4 || stupac==7)
+                {
+                    cout<<"Sljedeci krizic/kruzic mora se upisati u sedmi kvadrant."<<endl;
+                    sedmi=true;
+                }
+                if(stupac==2 || stupac==5 || stupac==8)
+                {
+                    cout<<"Sljedeci krizic/kruzic mora se upisati u osmi kvadrant."<<endl;
+                    osmi=true;
+                if(stupac==3 || stupac==6 || stupac==9)
+                {
+                    cout<<"Sljedeci krizic/kruzic mora se upisati u deveti kvadrant."<<endl;
+                    deveti=true;
+                }
             }
         }
-        if(red ==3  || red ==6 || red==9 )
+        else
+            {
+                cout <<"Unjeli ste krive podatke."<<endl;
+        if(igrac == 1)
         {
-            if(stupac==1 || stupac==4 || stupac==7)
-            {
-                cout<<"Sljedeci krizic/kruzic mora se upisati u sedmi kvadrant."<<endl;
+            igrac = 2;
+        }
+        else if(igrac == 2)
+        {
+            igrac = 1;
+        }
             }
-            if(stupac==2 || stupac==5 || stupac==8)
-            {
-                cout<<"Sljedeci krizic/kruzic mora se upisati u osmi kvadrant."<<endl;
-            }
-            if(stupac==3 || stupac==6 || stupac==9)
-            {
-                cout<<"Sljedeci krizic/kruzic mora se upisati u deveti kvadrant."<<endl;
-            }
+            cout << endl;
+        }
+        if(igrac == 1)
+        {
+            igrac = 2;
+        }
+        else if(igrac == 2)
+        {
+            igrac = 1;
         }
     }
-    else
-        {
-            cout <<"Unjeli ste krive podatke."<<endl;
-        }
-        cout << endl;
-    }while(sit=true);
-
+    while(sit==true);
 }
